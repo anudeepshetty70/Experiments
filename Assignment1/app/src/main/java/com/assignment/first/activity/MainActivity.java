@@ -9,7 +9,6 @@ import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.content.ContextCompat;
-import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -24,12 +23,13 @@ import com.assignment.first.fragment.FourthFragment;
 import com.assignment.first.fragment.SecondFragment;
 import com.assignment.first.fragment.ThirdFragment;
 import com.assignment.first.utils.AppConstants;
+import com.robohorse.pagerbullet.PagerBullet;
 
 public class MainActivity extends AppCompatActivity implements AppConstants {
 
     private TabLayout headerTabs;
     private TextView txtTabSelectedData;
-    private ViewPager viewPager;
+    private PagerBullet viewPager;
     private Activity activity;
     private LinearLayout rltPoint5;
     private Button redBtn;
@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity implements AppConstants {
 
         headerTabs = (TabLayout) findViewById(R.id.tabs);
         txtTabSelectedData = (TextView) findViewById(R.id.txt_tab_selected_data);
-        viewPager = (ViewPager) findViewById(R.id.viewpager);
+        viewPager = (PagerBullet) findViewById(R.id.viewpager);
         rltPoint5 = (LinearLayout)findViewById(R.id.rlt_point5);
         redBtn = (Button) findViewById(R.id.redBtn);
         blueBtn = (Button) findViewById(R.id.blueBtn);
@@ -135,7 +135,7 @@ public class MainActivity extends AppCompatActivity implements AppConstants {
         @Override
         public void onReceive(Context context, Intent intent) {
 
-            int fragmentNumber = viewPager.getCurrentItem();
+            int fragmentNumber = viewPager.getViewPager().getCurrentItem();
             if (activity != null) {
                 Toast.makeText(activity, "Fragment: "+String.valueOf(fragmentNumber), Toast.LENGTH_SHORT).show();
             }
