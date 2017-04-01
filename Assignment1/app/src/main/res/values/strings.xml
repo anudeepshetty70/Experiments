@@ -1,0 +1,21 @@
+<resources>
+    <string name="tab_selected_text">Tab selected text</string>
+    <string name="tab_item1">Tab item 1</string>
+    <string name="tab_item2">Tab item 2</string>
+    <string name="tab_item3">Tab item 3</string>
+    <string name="tab_item4">Tab item 4</string>
+    <string name="tab_item5">Tab item 5</string>
+    <string name="fragment_body">Fragment Body</string>
+    <string name="fragment1">Fragment One</string>
+    <string name="fragment2">Fragment Two</string>
+    <string name="fragment3">Fragment Three</string>
+    <string name="fragment4">Fragment Four</string>
+    <string name="text_view1">Text View 1</string>
+    <string name="text_view2">Text View 2</string>
+    <string name="text_view3">Text View 3</string>
+    <string name="btn_red">Red</string>
+    <string name="btn_blue">Blue</string>
+    <string name="btn_green">Green</string>
+
+
+</resources>
