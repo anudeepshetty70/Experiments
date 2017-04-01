@@ -5,6 +5,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.content.ContextCompat;
@@ -203,4 +204,18 @@ public class MainActivity extends AppCompatActivity implements AppConstants {
         greenBtn.setBackgroundResource(R.drawable.btn_state_normal);
     }
 
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+            super.onConfigurationChanged(newConfig);
+
+            // Checks the orientation of the screen
+            if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+
+                headerTabs.setTabMode(TabLayout.MODE_FIXED);
+
+            } else if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT){
+
+                headerTabs.setTabMode(TabLayout.MODE_SCROLLABLE);
+            }
+        }
 }
