@@ -1,0 +1,80 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.2"
+
+    defaultConfig {
+        applicationId applicationID
+        minSdkVersion 15
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+    }
+
+    productFlavors {
+
+        dev {
+
+            applicationId debugApplicationID
+            resValue("string","app_name","\"${debugAppName}\"")
+        }
+        production {
+
+            applicationId releaseApplicationID
+            resValue("string","app_name","\"${releaseAppName}\"")
+        }
+    }
+
+    signingConfigs {
+
+        dev {
+
+            storeFile file("devkeystore.jks")
+            keyAlias "devkeystore"
+            storePassword "7fRw2rD89kQt57f6"
+            keyPassword "7fRw2rD89kQt57f6"
+
+        }
+        production {
+
+            storeFile file("releasekeystore.jks")
+            keyAlias "releasekeystore"
+            storePassword "Zna6EHZfuEtH6NVS"
+            keyPassword "Zna6EHZfuEtH6NVS"
+
+        }
+    }
+    buildTypes {
+        debug {
+
+            debuggable true
+            jniDebuggable true
+            zipAlignEnabled false
+            minifyEnabled false
+            shrinkResources false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.dev
+
+        }
+        release {
+            debuggable false
+            jniDebuggable false
+            zipAlignEnabled true
+            shrinkResources false
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.production
+        }
+
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:25.3.0'
+    compile files('libs/volley.jar')
+    compile 'com.google.code.gson:gson:2.7'
+
+}
